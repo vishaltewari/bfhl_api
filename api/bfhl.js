@@ -4,12 +4,12 @@ const EMAIL = "john@xyz.com";
 const ROLL_NUMBER = "ABCD123";
 
 export default function handler(req, res) {
-  // Enable CORS
+  
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  // Handle preflight requests
+  
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
@@ -57,12 +57,18 @@ export default function handler(req, res) {
         }
       }
 
-      let concat_string = alphabetsForConcat
-        .join("")
-        .split("")
-        .reverse()
-        .map((ch, i) => (i % 2 === 0 ? ch.toUpperCase() : ch.toLowerCase()))
-        .join("");
+      // Create concatenated string: join alphabets, reverse, then alternate case
+      let joinedAlphabets = alphabetsForConcat.join("");
+      let reversedString = joinedAlphabets.split("").reverse().join("");
+      
+      let concat_string = "";
+      for (let i = 0; i < reversedString.length; i++) {
+        if (i % 2 === 0) {
+          concat_string += reversedString[i].toUpperCase();
+        } else {
+          concat_string += reversedString[i].toLowerCase();
+        }
+      }
 
       return res.status(200).json({
         is_success: true,
@@ -81,7 +87,6 @@ export default function handler(req, res) {
     }
   }
 
-  // Method not allowed
   res.setHeader('Allow', ['GET', 'POST']);
   res.status(405).end(`Method ${req.method} Not Allowed`);
 }
