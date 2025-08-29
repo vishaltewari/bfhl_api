@@ -76,10 +76,10 @@ app.post("/bfhl", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-// Only start the server if not in Vercel environment
+
 if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }
 
-// Export the app for Vercel
+
 module.exports = app;
