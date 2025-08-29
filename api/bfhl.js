@@ -55,7 +55,6 @@ export default function handler(req, res) {
         }
       }
 
-      // Create concatenated string: join alphabets, reverse, then alternate case
       let joinedAlphabets = alphabetsForConcat.join("");
       let reversedString = joinedAlphabets.split("").reverse().join("");
       
