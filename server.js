@@ -7,6 +7,13 @@ const DOB = "17091999";
 const EMAIL = "john@xyz.com";
 const ROLL_NUMBER = "ABCD123";
 
+// GET route for operation_code
+app.get("/bfhl", (req, res) => {
+  return res.status(200).json({
+    operation_code: 1
+  });
+});
+
 app.post("/bfhl", (req, res) => {
   try {
     const { data } = req.body;
@@ -68,4 +75,11 @@ app.post("/bfhl", (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Only start the server if not in Vercel environment
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
+// Export the app for Vercel
+module.exports = app;
