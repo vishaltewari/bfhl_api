@@ -1,7 +1,7 @@
-const FULL_NAME = "john_doe";
-const DOB = "17091999"; 
-const EMAIL = "john@xyz.com";
-const ROLL_NUMBER = "ABCD123";
+const FULL_NAME = "vishal_tiwari";
+const DOB = "01022005"; 
+const EMAIL = "vt@xyz.com";
+const ROLL_NUMBER = "22BLC1233";
 
 export default function handler(req, res) {
 
