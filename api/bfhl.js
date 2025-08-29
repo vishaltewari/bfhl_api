@@ -1,15 +1,13 @@
-const FULL_NAME = "john_doe";
-const DOB = "17091999"; 
-const EMAIL = "john@xyz.com";
-const ROLL_NUMBER = "ABCD123";
+const FULL_NAME = "vishal_tiwari";
+const DOB = "01022005"; 
+const EMAIL = "vt@xyz.com";
+const ROLL_NUMBER = "22BLC1233";
 
 export default function handler(req, res) {
-  
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
-  
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
